@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
@@ -113,7 +112,11 @@ const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
     return (
       <div
         ref={ref}
-        className={cn(accordionVariants({ variant, size }), className)}
+        className={cn(
+          accordionVariants({ variant, size }), 
+          "text-sm md:text-base",
+          className
+        )}
         data-state={expanded ? "open" : "closed"}
         {...props}
       >
@@ -122,7 +125,7 @@ const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
             type="button"
             id={`accordion-header-${id}`}
             className={cn(
-              "flex w-full items-center justify-between p-4 text-left focus:outline-none",
+              "flex w-full items-center justify-between p-3 md:p-4 text-left focus:outline-none",
               disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
             )}
             aria-expanded={expanded}
@@ -132,18 +135,22 @@ const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
             onKeyDown={handleKeyDown}
             disabled={disabled}
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 min-w-0">
               {icon && <span className="flex-shrink-0">{icon}</span>}
-              <div>
-                <div className="font-medium">{title}</div>
-                {subtitle && <div className="text-body-small text-muted-foreground">{subtitle}</div>}
+              <div className="min-w-0">
+                <div className="font-medium truncate">{title}</div>
+                {subtitle && (
+                  <div className="text-sm text-muted-foreground truncate">
+                    {subtitle}
+                  </div>
+                )}
               </div>
             </div>
             <ChevronDown
               className={cn(
-                "transition-transform duration-200", 
+                "flex-shrink-0 transition-transform duration-200",
                 expanded ? "rotate-180" : "rotate-0",
-                "h-5 w-5 flex-shrink-0"
+                "h-4 w-4 md:h-5 md:w-5"
               )}
             />
           </button>
@@ -157,7 +164,7 @@ const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
             expanded ? "max-h-[1000px] animate-accordion-down" : "max-h-0 animate-accordion-up"
           )}
         >
-          <div className={cn("p-4 pt-0")}>{children}</div>
+          <div className="p-3 md:p-4 pt-0">{children}</div>
         </div>
       </div>
     );

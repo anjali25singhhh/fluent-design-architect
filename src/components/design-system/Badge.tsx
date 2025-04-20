@@ -1,4 +1,3 @@
-
 import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
@@ -97,6 +96,7 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
         ref={ref}
         className={cn(
           badgeVariants({ variant, size, rounded, removable }),
+          "whitespace-nowrap",
           removable && "pr-1",
           className
         )}
@@ -106,12 +106,12 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
         onKeyDown={removable ? handleKeyDown : undefined}
         {...props}
       >
-        {icon && <span className="mr-1">{icon}</span>}
-        <span>{label}</span>
+        {icon && <span className="mr-1 flex-shrink-0">{icon}</span>}
+        <span className="truncate">{label}</span>
         {removable && (
           <button
             type="button"
-            className="ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-ring"
+            className="ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-ring flex-shrink-0"
             onClick={handleRemoveClick}
             aria-label={`Remove ${label}`}
           >

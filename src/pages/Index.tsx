@@ -27,12 +27,13 @@ import {
   Tag, 
   ChevronDown, 
   Layers, 
-  CircleInfo,
+  Info,
   CircleX, 
   CircleCheck, 
   CircleAlert, 
   Settings, 
-  User
+  User,
+  LayoutGrid
 } from "lucide-react";
 
 const Index = () => {
@@ -63,7 +64,7 @@ const Index = () => {
             <SidebarItem href="#accordions" active={activeTab === "accordions"} icon={<ChevronDown size={20} />}>
               Accordions
             </SidebarItem>
-            <SidebarItem href="#tabs" active={activeTab === "tabs"} icon={<Tabs size={20} />}>
+            <SidebarItem href="#tabs" active={activeTab === "tabs"} icon={<LayoutGrid size={20} />}>
               Tabs
             </SidebarItem>
           </SidebarSection>
@@ -113,7 +114,7 @@ const Index = () => {
                 value="tabs" 
                 activeTab={activeTab} 
                 onSelect={setActiveTab} 
-                icon={<Tabs size={16} />}
+                icon={<LayoutGrid size={16} />}
               >
                 Tabs
               </TabTrigger>
@@ -157,7 +158,7 @@ const Index = () => {
                   <Badge label="Error" variant="error" icon={<CircleX size={14} />} />
                   <Badge label="Success" variant="success" icon={<CircleCheck size={14} />} />
                   <Badge label="Warning" variant="warning" icon={<CircleAlert size={14} />} />
-                  <Badge label="Info" variant="info" icon={<CircleInfo size={14} />} />
+                  <Badge label="Info" variant="info" icon={<Info size={14} />} />
                 </div>
               </section>
               

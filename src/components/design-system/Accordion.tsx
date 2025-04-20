@@ -27,7 +27,7 @@ const accordionVariants = cva(
 );
 
 export interface AccordionItemProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>,
     VariantProps<typeof accordionVariants> {
   /**
    * Unique identifier for the accordion item

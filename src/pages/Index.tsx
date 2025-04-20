@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { 
   Sidebar, 
@@ -21,18 +20,17 @@ import {
 import { Badge } from "@/components/design-system/Badge";
 import { ColorSystem } from "@/components/design-system/ColorSystem";
 
-// Lucide Icons
+// Lucide Icons - fixing imports
 import { 
   Home, 
   Palette, 
   Tag, 
   ChevronDown, 
   Layers, 
-  Tabs, 
+  CircleInfo,
   CircleX, 
   CircleCheck, 
   CircleAlert, 
-  CircleInfo, 
   Settings, 
   User
 } from "lucide-react";

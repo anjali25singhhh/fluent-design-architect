@@ -98,7 +98,7 @@ export interface TabsListProps
     VariantProps<typeof tabsListVariants> {}
 
 export interface TabTriggerProps
-  extends React.HTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'onSelect'>,
     VariantProps<typeof tabTriggerVariants> {
   /**
    * The value of the tab. This is used to match with the value of the active tab.
